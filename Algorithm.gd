@@ -5,7 +5,9 @@ extends Node2D
 #런 타임중에 확인 하고 싶다면 중간에 breakpoint를 써서 확인 할 것.
 
 func _ready():
-	Selection_Sort()
+	Quick_Sort()
+	
+
 
 #================================== 정렬 알고리즘==============================
 
@@ -16,7 +18,7 @@ var Max_reslut
 var Sort_reslut
 var Selection_Sort_Copy = []
 
-func Selection_Sort(): #선택 정렬 알고리즘(중복 가능, 음수 가능)
+func Selection_Sort(): #선택 정렬 알고리즘(중복 가능, 음수 가능) <테스트 완료>
 	for number in Selection_Sort_Array.size():
 		Selection_Sort_Copy = Selection_Sort_Array[number]
 		Min_reslut = Selection_Sort_Array[number]
@@ -35,3 +37,23 @@ func Selection_Sort(): #선택 정렬 알고리즘(중복 가능, 음수 가능)
 		Selection_Sort_Array[Sort_reslut] = Selection_Sort_Copy
 	breakpoint
 #==
+
+#==
+var Quick_Sort_Array = [1,4,5,8,7,9,2,0,3,6]
+#0,9
+var Pivot_Right_Index #배열의 제일 끝에서 부터 -1
+var Pivot_Left_Index #피벗으로 정한 인덱스의 앞에서 부터 + 1
+
+var Quick_Right
+var Quick_Left
+
+var Quick_First_Pivot #최초 피벗
+var Quick_Change_Pivot
+
+#중요 키 포인트, 무조건 첫번 째 이후 가장 작은 수는 왼쪽, 가장 큰 수는 왼쪽에 온다.
+func Quick_Sort(): #퀵 정렬 알고리즘
+	#***"임의로 고른 수를 기준"***으로 왼쪽은 작은 수 오른쪽은 큰수로 분할한다.
+	#첫 번째 목표 임의로 고른 수를 기준으로 왼쪽으론 작은 수 오른쪽은 큰 수로 만든다. 
+	
+
+	breakpoint
