@@ -5,8 +5,8 @@ extends Node2D
 #런 타임중에 확인 하고 싶다면 중간에 breakpoint를 써서 확인 할 것.
 
 func _ready():
-	Quick_Sort()
-	
+	#Quick_Sort()
+	Recursive(5, 0)
 
 
 #================================== 정렬 알고리즘==============================
@@ -57,3 +57,18 @@ func Quick_Sort(): #퀵 정렬 알고리즘
 	
 
 	breakpoint
+#================================== 정렬 알고리즘==============================
+
+#================================== 재귀 알고리즘==============================
+
+func Recursive(Count, Stack): #재귀 함수
+	if Count == 0:
+		return
+		
+	Stack += 1
+	Count -= 1
+	
+	print("스택" + str(Stack))
+	yield(get_tree().create_timer(1), "timeout")
+	return Recursive(Count, Stack) #기존의 함수 해제와 동시에 재귀.
+	
