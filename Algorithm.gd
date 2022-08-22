@@ -72,3 +72,62 @@ func Recursive(Count, Stack): #재귀 함수
 	yield(get_tree().create_timer(1), "timeout")
 	return Recursive(Count, Stack) #기존의 함수 해제와 동시에 재귀.
 	
+#================================== 재귀 알고리즘 ==============================
+
+#================================== 무작위 문자열 생성기 ==============================
+
+var All_Of_String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+func Rand_String():
+	for loop in range(0,20): #무작위로 생성하고 싶은 수
+		
+		Result = ""
+		
+		for i in range(0,15): #무작위 문자열의 크기
+			Rand()
+			
+		print(Result)
+	
+var Rand_Generator = RandomNumberGenerator.new()
+var Result = ""
+	
+func Rand():
+	
+	Rand_Generator.randomize()
+	var Rand_String = Rand_Generator.randi_range(0, All_Of_String.length() - 1)
+	
+	Result += str(All_Of_String[Rand_String])
+	
+#================================== 무작위 문자열 생성기 ==============================
+
+
+
+#================================== 배지어 커브==============================
+var Point_0
+var Point_1
+var Point_2
+var L0
+var L1
+var Q0
+var t = 0
+
+func TEST():
+	Point_0 = Vector2(400,409)
+	Point_1 = Vector2(140,280)
+	Point_2 = Vector2(100,1400)
+	
+	Q0 = Vector2(200,600)
+
+func _on_Timer_timeout():
+	t += 0.03
+	
+	L0 = ((1-t) * Point_0) + (Point_1*t)
+	L1 = ((1-t) * Point_1) + (Point_2*t)
+	
+	Q0 = ((1-t) * L0) + (L1*t)
+	
+	$JokerBox.rect_position = Q0
+	
+	if t >= 1:
+		t = 0
+	
